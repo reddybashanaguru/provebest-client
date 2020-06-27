@@ -71,7 +71,7 @@ const App = props => {
 
     return (
         <div>
-            <Route component={Header} />
+            {/* <Route component={Header} /> */}
             <div className="columns">
                 {user && (
                     <div
