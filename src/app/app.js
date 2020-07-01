@@ -52,22 +52,22 @@ const App = props => {
     //   return user ? Component : RedirectToLogin
     // };
 
-    // const renderComponent = (Component, routeProps, isRoute) => {
-    //     const permissions = props.loginPermissions || props.permissions;
-    //     const permissionId = getPermissionId(
-    //         routeProps.location.pathname,
-    //         permissions
-    //     );
-    //     let cpermissions = JSON.parse(sessionStorage.getItem("permissions"));
-    //     if (isRoute && user && !permissionId) {
-    //         return <UnauthorizedPage {...routeProps} />;
-    //     }
-    //     return user ? (
-    //         <Component permissions={cpermissions} {...routeProps} permissionId={permissionId} />
-    //     ) : (
-    //             <RedirectToLogin {...routeProps} />
-    //         );
-    // };
+    const renderComponent = (Component, routeProps, isRoute) => {
+        // const permissions = props.loginPermissions || props.permissions;
+        // const permissionId = getPermissionId(
+        //     routeProps.location.pathname,
+        //     permissions
+        // );
+        // let cpermissions = JSON.parse(sessionStorage.getItem("permissions"));
+        // if (isRoute && user && !permissionId) {
+        //     return <UnauthorizedPage {...routeProps} />;
+        // }
+        // return user ? (
+        //     <Component permissions={cpermissions} {...routeProps} permissionId={permissionId} />
+        // ) : (
+        return <RedirectToLogin {...routeProps} />
+        // );
+    };
 
     return (
         <div>
@@ -84,6 +84,14 @@ const App = props => {
                 <div className="column main-content-layout">
                     <Switch>
                         {/* PUBLIC ROUTES */}
+                        <Route
+                            exact
+                            path="/"
+                            //render={routeProps => renderComponent(Dashboards, routeProps)}
+                            render={routeProps =>
+                                renderComponent(AppLoginComponent, routeProps)
+                            }
+                        />
                         <Route exact path="/login" component={AppLoginComponent} />
                         <Route exact path="/homepage" component={HOMEPAGE} />
                         {/* LOGGED IN ROUTES */}
