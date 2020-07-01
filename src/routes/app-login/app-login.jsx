@@ -340,40 +340,6 @@ class App extends React.Component {
     setConfirmPassword = (e) => {
         this.setState({ confirmPassword: e.target.value })
     }
-    // renderModalContents = (modal) => {
-
-    //     switch (modal) {
-    //         case 'register':
-    //             return (
-    //                 //Register Modal
-    //                 <UserRegistration {...userProps} />
-    //             )
-    //         case 'login':
-    //             return (
-    //                 //LOGIN PAGE
-    //                 <UserLogin {...userProps} />
-    //             )
-    //         case 'accountVerify':
-    //             return (
-    //                 //ACCOUNT VERIFICATION
-    //                 <UserAccountVerify {...userProps} />
-    //             )
-    //         case 'forgotPassword':
-    //             return (
-    //                 //Forgot Password
-    //                 <UserForgotPassword {...userProps} />
-    //             )
-    //         case 'enterNewPassword':
-    //             return (
-    //                 //Enter Your new password and continue
-    //                 <UserNewPassword  {...userProps} />
-    //             )
-    //         default:
-    //             return null;
-    //     }
-    // }
-
-
     render() {
         const { open, modalType } = this.state;
         const { otp, userName, email, mobileNo, errorMsg, password, isSave, } = this.state;
@@ -392,8 +358,8 @@ class App extends React.Component {
                     <span onClick={() => this.setState({ modalType: 'register' })}>Sign Up/</span>
                     <span onClick={() => this.setState({ modalType: 'login' })}>Sign In</span>
                 </Button>
-                <div className="modal-dialog modal-xl"> */}
-                <Modal
+                <div className="modal-dialog modal-xl">
+                    <Modal
                         aria-labelledby="transition-modal-title"
                         aria-describedby="transition-modal-description"
                         className="modal-content"
@@ -410,7 +376,10 @@ class App extends React.Component {
                             style={{ transition: 'opacity 0.15s linear' }}>
                             <div className="paper">
                                 {modalType === 'register' && <UserRegistration {...userProps} />}
-
+                                {modalType === 'login' && <UserLogin {...userProps} />}
+                                {modalType === 'accountVerify' && <UserAccountVerify {...userProps} />}
+                                {modalType === 'forgotPassword' && <UserForgotPassword {...userProps} />}
+                                {modalType === 'UserNewPassword' && <UserNewPassword {...userProps} />}
                             </div>
                         </Fade>
                     </Modal>
