@@ -24,7 +24,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             open: false,
-            modalType: null,
+            modalType: 'register',
             userName: '',
             email: '',
             mobileNo: '',
@@ -341,16 +341,7 @@ class App extends React.Component {
         this.setState({ confirmPassword: e.target.value })
     }
     renderModalContents = (modal) => {
-        const { otp, userName, email, mobileNo, errorMsg, password, isSave, } = this.state;
-        const passwordError = errorMsg.password;
-        const confirmPasswordError = errorMsg.confirmPassword;
-        let userProps = {
-            errorMsg, userName, isSave, email, mobileNo, otp, passwordError, password, confirmPasswordError, registerUser: this.registerUser, userLogin: this.userLogin,
-            onEnterUserName: this.onEnterUserName, onValidateUserName: this.onValidateUserName, onValidatePassword: this.onValidatePassword,
-            setEmail: this.setEmail, setMobileNo: this.setMobileNo, setSignIn: this.setSignIn, setPassword: this.setPassword,
-            setOtp: this.setOtp, setConfirmPassword: this.setConfirmPassword, confirmPasswordCheck: this.confirmPasswordCheck, setForgotPassword: this.setForgotPassword,
-            setRegiterModal: this.setRegiterModal, verifyUser: this.verifyUser, resetPassword: this.resetPassword,
-        }
+
         switch (modal) {
             case 'register':
                 return (
@@ -385,6 +376,16 @@ class App extends React.Component {
 
     render() {
         const { open, modalType } = this.state;
+        const { otp, userName, email, mobileNo, errorMsg, password, isSave, } = this.state;
+        const passwordError = errorMsg.password;
+        const confirmPasswordError = errorMsg.confirmPassword;
+        let userProps = {
+            errorMsg, userName, isSave, email, mobileNo, otp, passwordError, password, confirmPasswordError, registerUser: this.registerUser, userLogin: this.userLogin,
+            onEnterUserName: this.onEnterUserName, onValidateUserName: this.onValidateUserName, onValidatePassword: this.onValidatePassword,
+            setEmail: this.setEmail, setMobileNo: this.setMobileNo, setSignIn: this.setSignIn, setPassword: this.setPassword,
+            setOtp: this.setOtp, setConfirmPassword: this.setConfirmPassword, confirmPasswordCheck: this.confirmPasswordCheck, setForgotPassword: this.setForgotPassword,
+            setRegiterModal: this.setRegiterModal, verifyUser: this.verifyUser, resetPassword: this.resetPassword,
+        }
         return (
             <div>
                 <Button className="btn btn-primary btn-block btn-md" onClick={this.handleOpen}>
@@ -408,7 +409,7 @@ class App extends React.Component {
                             in={open}
                             style={{ transition: 'opacity 0.15s linear' }}> */}
                 {/* <div className="paper"> */}
-                {modalType && this.renderModalContents(modalType)}
+                {modalType === 'register' && <UserRegistration {...userProps} />}
                 {/* </div> */}
                 {/* </Fade>
                     </Modal> */}
