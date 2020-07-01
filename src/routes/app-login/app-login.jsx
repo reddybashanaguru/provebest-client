@@ -408,7 +408,7 @@ class App extends React.Component {
                             in={open}
                             style={{ transition: 'opacity 0.15s linear' }}> */}
                 {/* <div className="paper"> */}
-                {this.renderModalContents(modalType)}
+                {modalType && this.renderModalContents(modalType)}
                 {/* </div> */}
                 {/* </Fade>
                     </Modal> */}
