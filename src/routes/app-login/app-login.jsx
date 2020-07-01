@@ -340,38 +340,38 @@ class App extends React.Component {
     setConfirmPassword = (e) => {
         this.setState({ confirmPassword: e.target.value })
     }
-    renderModalContents = (modal) => {
+    // renderModalContents = (modal) => {
 
-        switch (modal) {
-            case 'register':
-                return (
-                    //Register Modal
-                    <UserRegistration {...userProps} />
-                )
-            case 'login':
-                return (
-                    //LOGIN PAGE
-                    <UserLogin {...userProps} />
-                )
-            case 'accountVerify':
-                return (
-                    //ACCOUNT VERIFICATION
-                    <UserAccountVerify {...userProps} />
-                )
-            case 'forgotPassword':
-                return (
-                    //Forgot Password
-                    <UserForgotPassword {...userProps} />
-                )
-            case 'enterNewPassword':
-                return (
-                    //Enter Your new password and continue
-                    <UserNewPassword  {...userProps} />
-                )
-            default:
-                return null;
-        }
-    }
+    //     switch (modal) {
+    //         case 'register':
+    //             return (
+    //                 //Register Modal
+    //                 <UserRegistration {...userProps} />
+    //             )
+    //         case 'login':
+    //             return (
+    //                 //LOGIN PAGE
+    //                 <UserLogin {...userProps} />
+    //             )
+    //         case 'accountVerify':
+    //             return (
+    //                 //ACCOUNT VERIFICATION
+    //                 <UserAccountVerify {...userProps} />
+    //             )
+    //         case 'forgotPassword':
+    //             return (
+    //                 //Forgot Password
+    //                 <UserForgotPassword {...userProps} />
+    //             )
+    //         case 'enterNewPassword':
+    //             return (
+    //                 //Enter Your new password and continue
+    //                 <UserNewPassword  {...userProps} />
+    //             )
+    //         default:
+    //             return null;
+    //     }
+    // }
 
 
     render() {
