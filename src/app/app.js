@@ -84,15 +84,15 @@ const App = props => {
                 <div className="column main-content-layout">
                     <Switch>
                         {/* PUBLIC ROUTES */}
-                        <Route
+                        {/* <Route
                             exact
                             path="/"
                             //render={routeProps => renderComponent(Dashboards, routeProps)}
                             render={routeProps =>
                                 renderComponent(AppLoginComponent, routeProps)
                             }
-                        />
-                        <Route exact path="/login" component={AppLoginComponent} />
+                        /> */}
+                        <Route exact path="/" component={AppLoginComponent} />
                         <Route exact path="/homepage" component={HOMEPAGE} />
                         {/* LOGGED IN ROUTES */}
                         {/* <Route
