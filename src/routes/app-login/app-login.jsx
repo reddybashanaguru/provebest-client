@@ -392,8 +392,8 @@ class App extends React.Component {
                     <span onClick={() => this.setState({ modalType: 'register' })}>Sign Up/</span>
                     <span onClick={() => this.setState({ modalType: 'login' })}>Sign In</span>
                 </Button>
-                {/* <div className="modal-dialog modal-xl"> */}
-                {/* <Modal
+                <div className="modal-dialog modal-xl"> */}
+                <Modal
                         aria-labelledby="transition-modal-title"
                         aria-describedby="transition-modal-description"
                         className="modal-content"
@@ -404,16 +404,17 @@ class App extends React.Component {
                         BackdropProps={{
                             timeout: 500,
                         }}
-                    > */}
-                {/* <Fade
+                    >
+                        <Fade
                             in={open}
-                            style={{ transition: 'opacity 0.15s linear' }}> */}
-                {/* <div className="paper"> */}
-                {modalType === 'register' && <UserRegistration {...userProps} />}
-                {/* </div> */}
-                {/* </Fade>
-                    </Modal> */}
-                {/* </div> */}
+                            style={{ transition: 'opacity 0.15s linear' }}>
+                            <div className="paper">
+                                {modalType === 'register' && <UserRegistration {...userProps} />}
+
+                            </div>
+                        </Fade>
+                    </Modal>
+                </div>
             </div>
         );
     }
