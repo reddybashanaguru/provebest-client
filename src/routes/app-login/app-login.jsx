@@ -231,6 +231,10 @@ class App extends React.Component {
                     headers: { 'Content-Type': 'application/json' },
                     data: data
                 }).then(res => {
+                    if (res.data === false) {
+                        alert("Please check the credentials");
+                        return;
+                    }
                     alert("Logged In successfully");
                     this.props.history.push('/homepage/');
                     this.setState({ modalType: null, open: false })
@@ -275,9 +279,10 @@ class App extends React.Component {
                     data: data
                 }).then(res => {
                     console.log(res);
+                    alert("Password Changed Successfully");
+                    this.setState({ modalType: null, open: false, password: '', confirmPassword: '' })
                 })
-                alert("Password Changed Successfully");
-                this.setState({ modalType: null, open: false, password: '', confirmPassword: '' })
+
             }
         })
     }
@@ -379,7 +384,7 @@ class App extends React.Component {
                                 {modalType === 'login' && <UserLogin {...userProps} />}
                                 {modalType === 'accountVerify' && <UserAccountVerify {...userProps} />}
                                 {modalType === 'forgotPassword' && <UserForgotPassword {...userProps} />}
-                                {modalType === 'UserNewPassword' && <UserNewPassword {...userProps} />}
+                                {modalType === 'enterNewPassword' && <UserNewPassword {...userProps} />}
                             </div>
                         </Fade>
                     </Modal>
