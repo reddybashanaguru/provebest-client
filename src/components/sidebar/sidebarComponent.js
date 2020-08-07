@@ -1,19 +1,3 @@
-<<<<<<< Updated upstream
-import React, { Component } from 'react'
-
-class SidebarComponent extends Component {
-    render() {
-        return (
-            <div>
-                <p>Hi ! I'm from, inside sidebar component</p>
-            </div>
-        )
-    }
-}
-
-
-export default SidebarComponent;
-=======
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -100,4 +84,3 @@ export default function SidebarComponent() {
         </div>
     );
 }
->>>>>>> Stashed changes
