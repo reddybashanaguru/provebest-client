@@ -31,7 +31,7 @@ class App extends React.Component {
             password: '',
             confirmPassword: '',
             isSave: false,
-            errorMsg: { userName: '', password: '', confirmPassword: '', otp: '' },
+            errorMsg: { email:'',userName: '', password: '',mobileNo:'', confirmPassword: '', otp: '' },
             otp: '',
         }
     }
@@ -69,11 +69,19 @@ class App extends React.Component {
         const SpecialCharactersCheck = new RegExp("^(?=.*[!@#\$%\^&\*])");
         this.setState({ isSave: true });
 
+        let emailError = errorMsg.email;
         let userNameError = errorMsg.userName;
         let passwordError = errorMsg.password;
+        let mobileNoError = errorMsg.mobileNo;
 
         if (userName === '') {
             userNameError = 'Enter the User Name';
+        }
+         if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+             emailError = "Please enter the valid mail id"
+        }
+        if(mobileNo.length < 10){
+            mobileNoError = 'Mobile No length should be 10';
         }
         if (password === '') {
             passwordError = 'Enter the password'
@@ -93,10 +101,12 @@ class App extends React.Component {
             errorMsg: {
                 ...errorMsg,
                 userName: userNameError,
-                password: passwordError
+                password: passwordError,
+                mobileNo : mobileNoError,
+                email : emailError,
             }
         })
-        if (userName === '' || email === '' || mobileNo === '' || password === '' || userNameError !== '' || passwordError !== '') {
+        if (userName === '' || email === '' || mobileNo === '' || password === '' || userNameError !== '' || passwordError !== '' || mobileNoError != '',emailError!= '') {
             return null;
         }
         else {
@@ -106,7 +116,7 @@ class App extends React.Component {
                 headers: { 'Content-Type': 'application/json' },
                 data
             }).then(res => {
-                this.setState({ modalType: 'accountVerify', isSave: false });
+                this.setState({ modalType: 'accountVerify', isSave: false,errorMsg: { email:'',userName: '', password: '',mobileNo:'', confirmPassword: '', otp: '' } });
             }).catch(error => {
                 alert(error.response.data.errors[0].msg);
                 console.log(error.response.data, 'errorsdata');
@@ -136,6 +146,7 @@ class App extends React.Component {
             }
         })
     }
+    
 
     onValidatePassword = (e, error, errorState) => {
         const { errorMsg } = this.state;
@@ -264,7 +275,8 @@ class App extends React.Component {
             console.log(password !== confirmPassword, 'cond');
             console.log(password === '', confirmPassword === '', (errorMsg && errorMsg.password) !== "", 'check')
             console.log(errorMsg, 'errorMsghhhhhhhhhh');
-            if (password === '' || (errorMsg && errorMsg.password) !== "") {
+            // if (password === '' || (errorMsg && errorMsg.password) !== "") {
+            if (password === '') {
                 return null;
             }
             else if (password !== confirmPassword) {
@@ -274,7 +286,7 @@ class App extends React.Component {
             else {
                 axios({
                     method: 'post',
-                    url: 'https://provebest-api.herokuapp.com/resetPassword',
+                    url: 'https://provebest-api.herokuapp.com/login/resetPassword',
                     headers: { 'Content-Type': 'application/json' },
                     data: data
                 }).then(res => {
