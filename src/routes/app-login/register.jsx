@@ -42,6 +42,7 @@ const UserRegistration = (props) => {
                             </div>
                             <div className="form-group">
                                 <label className="h12 bold600" for="email1">Email</label>
+                                <span className="error-msg1">{errorMsg && errorMsg.email}</span>
                                 {((email === '') && isSave) ?
                                     (<span className="error-msg1">Enter the EmailId</span>) : null
                                 }
@@ -55,6 +56,7 @@ const UserRegistration = (props) => {
 
                             <div class="form-group">
                                 <label className="h12 bold600" >Mobile</label>
+                                <span className="error-msg1">{errorMsg && errorMsg.mobileNo}</span>
                                 {((mobileNo === '') && isSave) ?
                                     (<span className="error-msg1">Enter the Mobile Number</span>) : null
                                 }
