@@ -503,7 +503,7 @@ class App extends React.Component {
                 {loginMode == "login" && (
                   <UserLogin {...userProps} {...this.props} />
                 )}
-                {modalType === "accountVerify" && (
+                {loginMode === "accountVerify" && (
                   <UserAccountVerify {...userProps} {...this.props} />
                 )}
                 {loginMode === "forgotPassword" && (
