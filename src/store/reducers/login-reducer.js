@@ -8,7 +8,6 @@ const DO_LOGIN = "DO_LOGIN";
 const SET_LOGIN_MODE = "SET_LOGIN_MODE";
 
 export function loginModeReducer(state = initialState, action) {
-  debugger;
   switch (action.type) {
     case SET_LOGIN_MODE:
       return {
