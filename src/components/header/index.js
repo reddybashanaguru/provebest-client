@@ -1,19 +1,20 @@
 import { connect } from "react-redux";
-import { withRouter } from 'react-router-dom';
+import { setLoginMode } from "./actions";
 
 import Component from "./headerComponent";
 
 function mapDispatchToProps(dispatch) {
-    return {
-
-    };
+  return {
+    setLoginMode: (loginMode) => {
+      dispatch(setLoginMode(loginMode));
+    },
+  };
 }
 
 function mapStateToProps(state) {
-    return {
-
-    };
+  return {
+    loginMode: state.loginModeReducer.loginMode,
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Component);
-

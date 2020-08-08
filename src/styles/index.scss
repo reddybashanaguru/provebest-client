@@ -1,15 +1,15 @@
 //importing custom scss module
-@import './custom.scss';
-
+@import "./custom.scss";
 
 //importing variables folder
-  // app colors
-@import './variables//colors.scss';  
-  //app grid breakpoints
-@import './variables/grid.scss';
-
+// app colors
+@import "./variables//colors.scss";
+//app grid breakpoints
+@import "./variables/grid.scss";
 
 //App Component scss module.
-@import '../app/app.scss';
+@import "../app/app.scss";
 
-@import '../components/header/header.scss';
+@import "../components/header/header.scss";
+
+@import "../components/sidebar/sidebar.scss";
