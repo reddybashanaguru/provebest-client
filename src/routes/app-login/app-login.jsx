@@ -48,7 +48,7 @@ class App extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.loginMode != this.props.loginMode && !this.state.open) {
+    if (prevProps.loginMode !== this.props.loginMode && !this.state.open) {
       this.handleOpen();
     }
   }
@@ -123,8 +123,8 @@ class App extends React.Component {
         password === "" ||
         userNameError !== "" ||
         passwordError !== "" ||
-        mobileNoError != "",
-      emailError != "")
+        mobileNoError !== "",
+      emailError !== "")
     ) {
       return null;
     } else {
@@ -243,7 +243,7 @@ class App extends React.Component {
         const { message = "" } = data;
         //TODO:Toast message comes here !
         alert(message);
-        if (status == 200) {
+        if (status === 200) {
           this.props.history.push("/homepage/");
         }
       })
@@ -497,10 +497,10 @@ class App extends React.Component {
           >
             <Fade in={open} style={{ transition: "opacity 0.15s linear" }}>
               <div className="paper">
-                {loginMode == "register" && (
+                {loginMode === "register" && (
                   <UserRegistration {...userProps} {...this.props} />
                 )}
-                {loginMode == "login" && (
+                {loginMode === "login" && (
                   <UserLogin {...userProps} {...this.props} />
                 )}
                 {loginMode === "accountVerify" && (
