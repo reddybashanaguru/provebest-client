@@ -53,11 +53,11 @@ const useStyles = makeStyles((theme) => ({
     // padding: theme.spacing(0, 2),
     // height: "100%",
     // position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "black",
+    // pointerEvents: "none",
+    // display: "flex",
+    // alignItems: "center",
+    // justifyContent: "center",
+    // color: "black",
   },
   inputRoot: {
     color: "inherit",
@@ -187,10 +187,10 @@ export default function PrimarySearchAppBar(props) {
               </span>
             </Grid>
             <Grid item xs={6} sm={4}>
-              <div className={classes.search}>
-                <div className={classes.searchIcon}>
-                  <SearchIcon />
-                </div>
+              {/* <div className={classes.search}> */}
+                {/* <div className={classes.searchIcon}> */}
+                  <SearchIcon id="searchicon"/>
+                {/* </div> */}
                 <InputBase
                   placeholder="Search for…"
                   classes={{
@@ -199,7 +199,7 @@ export default function PrimarySearchAppBar(props) {
                   }}
                   inputProps={{ "aria-label": "search" }}
                 />
-              </div>
+              {/* </div> */}
             </Grid>
             <Grid item xs={3} sm={3}>
               <div className={classes.sectionDesktop}>
