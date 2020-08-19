@@ -2,3 +2,24 @@
   background: black !important;
   color: white !important;
 }
+.MuiListItemText-primary:before{
+content: "";
+    width: 6.5rem;
+    height: 0.1px;
+    position: absolute;
+     left: 0.5rem;
+    bottom: -0.3125rem;
+    background-color: #49ecec;
+    z-index: 0;
+    opacity: 0;
+}
+.MuiListItemText-primary:hover:before {
+  bottom: 24px;
+  opacity: 1;
+}
+.MuiListItemText-root:hover{
+  color:#42F4F4;
+}
+.MuiList-padding {
+ padding: 0 !important;
+}

@@ -13,6 +13,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import MoreIcon from "@material-ui/icons/MoreVert";
 import SidebarComponent from "../sidebar/";
 import { Button } from "@material-ui/core";
@@ -62,9 +63,10 @@ const useStyles = makeStyles((theme) => ({
     color: "inherit",
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
+    // padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    // paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    padding:'14px !important',
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
@@ -166,7 +168,7 @@ export default function PrimarySearchAppBar(props) {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+          {/* <AccountCircle /> */}
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -179,9 +181,9 @@ export default function PrimarySearchAppBar(props) {
         <Toolbar>
           <SidebarComponent />
           <Grid container>
-            <Grid item xs={3} sm={6}>
+            <Grid item xs={3} sm={5}>
               <span className={classes.title} variant="h6" noWrap>
-                prove best
+                provebest
               </span>
             </Grid>
             <Grid item xs={6} sm={4}>
@@ -190,7 +192,7 @@ export default function PrimarySearchAppBar(props) {
                   <SearchIcon />
                 </div>
                 <InputBase
-                  placeholder="Search…"
+                  placeholder="Search for…"
                   classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput,
@@ -199,19 +201,22 @@ export default function PrimarySearchAppBar(props) {
                 />
               </div>
             </Grid>
-            <Grid item xs={3} sm={2}>
+            <Grid item xs={3} sm={3}>
               <div className={classes.sectionDesktop}>
-                <IconButton aria-label="show 4 new mails" color="inherit">
+                {/* <IconButton aria-label="show 4 new mails" color="inherit">
                   <Badge badgeContent={4} color="secondary">
                     <MailIcon />
                   </Badge>
-                </IconButton>
+                </IconButton> */}
+                <MenuItem>
+                <div className="prove-btn">PROVE</div>
+                </MenuItem>
                 <IconButton
                   aria-label="show 17 new notifications"
                   color="inherit"
                 >
                   <Badge badgeContent={17} color="secondary">
-                    <NotificationsIcon />
+                    <NotificationsNoneIcon/>
                   </Badge>
                 </IconButton>
                 {/* <IconButton> */}
@@ -247,7 +252,7 @@ export default function PrimarySearchAppBar(props) {
               </div>
             </Grid>
           </Grid>
-          {/* <div className={classes.grow} /> */}
+          <div className={classes.grow} />
           <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"

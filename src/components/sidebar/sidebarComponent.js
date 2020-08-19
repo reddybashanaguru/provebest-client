@@ -17,6 +17,8 @@ const useStyles = makeStyles({
   list: {
     width: 250,
     textAlign: "center",
+    paddingTop:"50px",
+    paddingLeft:"50px",
   },
   fullList: {
     width: "auto",
